@@ -1,0 +1,799 @@
+:root {
+    /* Old Color Scheme
+	--bgColor: rgba(205, 205, 205, 1);
+	--innerMenuBgColor: rgba(225, 225, 225, 1);
+	--sliderBgColor: rgba(245, 245, 245, 1);
+	--fontColor: rgba(25, 25, 25, 1);
+	--buttonFontColor: #424242;
+	--buttonBgColor: #9e9e9e;
+	--buttonActiveBgColor: #d3d3d3;
+	--buttonHoverBgColor: #c9c9c9;
+	--borderColor: rgba(0, 0, 0, 0.5); */
+    --bgColor: #6e6e6e;
+    /* #424242; */
+    --innerMenuBgColor: #818181;
+    --darkInnerMenuBgColor: #2d2d2d;
+    --darkerInnerMenuBgColor: #1f1f1f;
+    --lightInnerMenuHoverBgColor: #3a3939;
+    --inputBgColor: #757575;
+    --inputFontColor: #eeeeee;
+    --fontColor: rgb(219, 219, 219);
+    --fontColorDark: #2c2c2c;
+    --fontWeightedColor: #d3d3d3;
+    --fontWeakenedColor: #afafaf;
+    --buttonFontColor: #f0f0f0;
+    --buttonBgColor: #383838;
+    --buttonActiveBgColor: #8e8e8e;
+    --buttonHoverBgColor: #464646;
+    --buttonHoverFontColor: #dfdfdf;
+    --borderColor: #616161;
+    --progressBarGreen: rgba(62, 149, 62, 1);
+    --progressBarHeight: 16;
+}
+
+html,
+body {
+    font-family: "Source Sans Pro", sans-serif !important;
+    color: var(--fontColor);
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+    min-height: 100%;
+    background-color: #424242;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    -webkit-text-size-adjust: none;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+    html,
+    body {
+        font-size: 16px;
+    }
+    .btn-lg {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 975px) {
+    html,
+    body {
+        font-size: 16px;
+    }
+    .hiddenIfSmall {
+        display: none !important;
+    }
+    .shownIfSmall {
+        display: flex !important;
+        flex: 1 !important;
+    }
+    .innerMenuDivsContainer {
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+}
+
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.pcr-app:not(.visible) {
+    display: none;
+}
+
+.navbar {
+    box-sizing: border-box;
+    transition: margin 0.4s ease-out, height 0s ease-in;
+    max-height: 150px;
+    min-height: 2.2em;
+    color: var(--fontColorDark);
+    background-color: var(--darkInnerMenuBgColor);
+    padding: 0.5em;
+    position: relative;
+    z-index: 111;
+}
+
+.dottedBg {
+    background-image: url(../images/bgPattern.png);
+    background-repeat: repeat;
+    background-size: 6px 6px;
+}
+
+.inlineFlex {
+    display: inline-flex;
+}
+
+.spaceAround {
+    display: flex;
+    justify-content: space-around;
+}
+
+#keyBindCanvas {
+    position: absolute;
+    z-index: 101;
+    pointer-events: none;
+}
+
+#sheetContainer {
+    background-color: wheat;
+    position: absolute;
+    height: 350px;
+    width: 100%;
+}
+
+#sheetCnv {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: var(--buttonHoverFontColor);
+}
+
+#minimizeMenu {
+    position: absolute;
+    font-size: 1.2rem;
+    z-index: 12;
+    transition: all 1s ease-in;
+    cursor: pointer;
+    width: 3em;
+    height: 1.5em;
+    padding: 0;
+    left: 50%;
+    top: calc(100% + 25px);
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+}
+
+.zoomGroup {
+    position: absolute;
+    right: 0em;
+    top: calc(100% + 35px);
+    width: 3.2em;
+    z-index: 13;
+    pointer-events: none;
+    transition: 1s opacity ease-in, 0.4s top ease-out;
+}
+
+.zoomBtn {
+    display: block;
+    position: relative;
+    float: none;
+    cursor: pointer;
+    pointer-events: all;
+    font-size: 0.741rem !important;
+    width: 3rem !important;
+    max-width: unset !important;
+    height: 3rem !important;
+    border-radius: 1.5em !important;
+    /* padding: 0.5em !important; */
+    margin-top: 0.2em;
+    border: 2px solid var(--buttonFontColor) !important;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0) !important;
+    transition: 0.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.zoomBtn span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-height: 600px) {
+    .zoomGroup {
+        width: 6em;
+    }
+    .zoomBtn {
+        float: right;
+    }
+}
+
+.zoomBtn.hidden {
+    height: 0px !important;
+    width: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    overflow: hidden;
+    border: 0px solid black !important;
+}
+
+canvas {
+    z-index: 0;
+}
+
+#progressBarCanvas {
+    transition: all 0.4s ease-out, top 0s ease-in;
+    background-color: var(--fontColor);
+    box-sizing: border-box;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 101;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    /* inset 0px -2px 1px 0px rgba(55, 55, 55, 1); */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.forcedThinButton {
+    width: 60px !important;
+}
+
+input[type="text"].forcedThinButton {
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-width: 0px;
+    border-radius: 0em;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.sandwichButton {
+    width: 100%;
+    appearance: auto;
+    font-size: 1.2rem;
+}
+
+.sandwichButton span {
+    float: left;
+}
+
+.innerMenuDivsContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    overflow: none;
+    margin-top: calc(-1 * var(--progressBarHeight));
+    width: 30%;
+    margin-left: 70%;
+    z-index: 150;
+}
+
+.innerMenuDiv {
+    position: absolute;
+    box-sizing: border-box;
+    pointer-events: all;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    background-color: var(--darkInnerMenuBgColor);
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.25s ease-out;
+}
+
+#innerMenuCloser:hover {
+    background-color: var(--lightInnerMenuHoverBgColor);
+    color: var(--buttonHoverFontColor);
+}
+
+#innerMenuCloser {
+    box-shadow: inset -1px -1px 0px 1px var(--borderColor);
+    background-color: var(--darkerInnerMenuBgColor);
+    color: var(--buttonFontColor);
+    z-index: 99;
+    font-size: 1rem;
+    padding: 0.5rem;
+    padding-left: 1em;
+    width: 100%;
+    border-bottom: 2px solid var(--borderColor);
+    pointer-events: all;
+    position: absolute;
+    transition: all 0.25s ease-out;
+    text-align: center;
+}
+
+.innerMenuContDiv:first-of-type {
+    border-top: none;
+}
+
+.innerMenuContDiv {
+    background-color: var(--darkInnerMenuBgColor);
+    color: var(--fontColor);
+    border-top: 1px solid var(--borderColor);
+    border-radius: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.3s all ease-out;
+    max-height: auto;
+    transition: all 0.3s ease-in;
+}
+
+.menuSubLabel {
+    padding: 0.4em;
+    margin-top: 0.4em;
+    padding-left: 1.5em;
+    /* text-align: center; */
+    font-size: 0.841rem;
+    font-weight: 600;
+    overflow: hidden;
+    word-break: break-word;
+}
+
+.innerMenuSubContDiv {
+    background-color: var(--darkInnerMenuBgColor);
+    color: var(--fontColor);
+    border-top: 1px solid var(--borderColor);
+    border-radius: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.3s all ease-out;
+    max-height: auto;
+    transition: all 0.3s ease-in;
+}
+
+.innerMenuSubContDiv .innerMenuContDiv .settingsLabel {
+    padding-left: 4em;
+}
+
+.innerMenuContDiv.collapsed {
+    max-height: 2rem;
+    transition: all 0.3s ease-out;
+}
+
+.collapsable.settingsGroupContainer.collapsed span.glyphicon.collapser {
+    transform: rotate(0deg);
+    transition: 0.3s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.collapsable.settingsGroupContainer:not(.collapsed) span.glyphicon.collapser {
+    transition: 0.3s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: rotate(90deg);
+}
+
+.clickableTitle:not(.glyphicon) {
+    position: relative;
+    padding-left: 0.5rem;
+    font-size: 0.741rem;
+    height: 2rem;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    display: flex;
+    -ms-user-select: none;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--darkerInnerMenuBgColor);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.songNameLabel {
+    width: 80%;
+    float: left;
+    overflow: hidden;
+    word-break: break-word;
+}
+
+.songButton {
+    position: relative;
+    width: 100%;
+    padding-left: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.glyphHolder {
+    padding: 0.5em;
+}
+
+.songButton span {
+    float: right;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    position: unset;
+}
+
+.clickableTitle:hover,
+.songButton:hover {
+    background-color: var(--lightInnerMenuHoverBgColor);
+}
+
+.rightGlyphSpan {
+    cursor: pointer;
+    font-size: 0.741em;
+    height: 14px;
+    right: 8px;
+}
+
+.rightGlyphSpan:nth-child(2) {
+    right: 30px;
+}
+
+.notification {
+    background-color: var(--darkInnerMenuBgColor);
+    color: var(--fontColor);
+    max-height: calc(50% - 50px);
+    top: 30%;
+    padding: 30px;
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 2px;
+    border: 2px solid var(--buttonFontColor);
+    z-index: 99999;
+    text-align: center;
+    line-height: 2em;
+}
+
+.notificationText {
+    text-align: center;
+    width: 100%;
+}
+
+.highlighted {
+    animation: pulse 1.5s infinite;
+    box-shadow: 0em 0em 5px 5px rgba(0, 0, 0, 0.8);
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(10, 141, 228, 0.4);
+    }
+    50% {
+        -webkit-box-shadow: 0 0 0 10px rgba(10, 141, 228, 0.4);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(10, 141, 228, 0.4);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(10, 141, 228, 0.4);
+        box-shadow: 0 0 0 0 rgba(10, 141, 228, 0.4);
+    }
+    50% {
+        -moz-box-shadow: 0 0 0 10px rgba(10, 141, 228, 0.4);
+        box-shadow: 0 0 0 10px rgba(10, 141, 228, 0.4);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(10, 141, 228, 0.4);
+        box-shadow: 0 0 0 0 rgba(10, 141, 228, 0.4);
+    }
+}
+
+.centeredBigText {
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.trackName {
+    width: 100%;
+    padding-top: 0.2rem;
+    font-size: 0.741rem;
+}
+
+.instrumentName {
+    width: 100%;
+    text-align: left;
+    font-size: 0.741rem;
+    padding-left: 0.2em;
+}
+
+.divider {
+    border: 0;
+    border: 1px solid var(--buttonColor);
+}
+
+.floatSpanLeft span {
+    float: left;
+    margin-right: 0.5em;
+}
+
+.container {
+    width: 100% !important;
+    display: flex;
+}
+
+.halfContainer {
+    width: 50% !important;
+    float: left;
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+}
+
+.col {
+    justify-content: space-between !important;
+}
+
+.btn-group {
+    align-self: auto;
+}
+
+.btn-group:not(.btn-group-vertical) {
+    align-items: center;
+}
+
+.btn-group-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: normal !important;
+    outline: none;
+    border-radius: 1px;
+    border: none;
+    box-shadow: 0px 1px 0px 1px rgb(0 0 0 / 30%);
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    transition: all 0.15s ease-out;
+    background-color: var(--buttonBgColor);
+    color: var(--buttonFontColor);
+}
+
+.btn:hover:active {
+    background-color: var(--buttonActiveBgColor);
+}
+
+.btn:hover {
+    background-color: var(--buttonHoverBgColor);
+    color: var(--buttonHoverFontColor);
+}
+
+.btn-select-line {
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: absolute;
+    left: 50%;
+    width: 0%;
+    height: 4px;
+    bottom: 0px;
+    opacity: 0.5;
+    border-radius: 2px;
+    background-color: #00bcd4;
+}
+
+.btn.selected {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.selected .btn-select-line {
+    left: 0%;
+    width: 100%;
+    background-size: 100% 100%;
+    z-index: 1000;
+}
+
+.playControlButton {
+    font-size: 2rem;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    min-height: 60px;
+    min-width: 60px;
+}
+
+.btn span {}
+
+.pcr-button {
+    opacity: 0;
+    position: absolute;
+}
+
+.topContainer {
+    flex: 1;
+    display: inline-flex;
+    align-items: unset;
+    justify-content: center;
+}
+
+.topContainer.shownIfSmall {
+    justify-content: flex-end;
+}
+
+/*leftest*/
+
+.topContainer:nth-child(1) {
+    margin-right: auto;
+    justify-content: space-between !important;
+    align-items: unset;
+}
+
+/*middle*/
+
+.topContainer:nth-child(5) {
+    flex: 3;
+}
+
+/*rightest*/
+
+.topContainer:nth-child(9) {
+    margin-left: auto;
+    justify-content: flex-end;
+    display: inline-flex;
+    align-items: unset;
+}
+
+.shownIfSmall {
+    display: none;
+    flex: 0;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-out, visibility 0.25s ease-out;
+}
+
+.unhidden {
+    visibility: visible;
+    opacity: 1 !important;
+}
+
+.hideLeft {
+    transition: opacity 0.25s ease-out, visibility 0.25s ease-out, margin-left 0.25s ease-out;
+    margin-left: 10vw;
+}
+
+.hideTop {
+    transition: opacity 0.25s ease-out, visibility 0.25s ease-out, margin-bottom 0.25s ease-out;
+    margin-bottom: -100vh;
+    opacity: 1;
+}
+
+.fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fullscreen p {
+    color: var(--fontWeightedColor);
+    text-align: center;
+    z-index: 999;
+    overflow: show;
+    margin: auto;
+    font-size: 1.2rem;
+    height: 50px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+#loadingDiv {
+    text-align: left;
+    background-color: var(--darkInnerMenuBgColor);
+    opacity: 1;
+    z-index: 999999;
+    background-image: url(../images/bgPattern.png);
+    background-repeat: repeat;
+    color: #fff;
+    background-size: 6px 6px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#loadingDiv.hidden {
+    background-size: 20px 20px;
+}
+
+.loader {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    z-index: 999;
+    overflow: show;
+    right: 0;
+}
+
+.loader div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    transition: all 1s linear;
+    animation: lds-ripple 3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.loader div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+    0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
+    }
+}
+
+.songInfoWrapper {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1em;
+    background-color: var(--innerMenuBgColor);
+    z-index: 1000;
+}
+
+.songInfoTitle {
+    margin: 1em;
+    text-align: center;
+}
+
+.songInfoRow {
+    text-align: left;
+    border-bottom: 1px solid var(--fontColor);
+    margin-top: 0.4em;
+    font-size: 0.741em;
+}
+
+.songInfoRowSpan {
+    text-align: right;
+    float: right;
+}
+
+.songInfoRowIndented {
+    text-align: left;
+    margin-left: 1em;
+    margin-top: 0.4em;
+    font-size: 0.741em;
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="google-site-verification"
+      content="w0SMD6jKSdkWT2VpCPmIXm90nXUhAtczUysV2kWaBUE"
+    />
+
+    <title>Midiano</title>
+
+    <link rel="manifest" href="manifest.json" />
+    <!-- ios support -->
+
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+    <meta name="theme-color" content="#db4938" />
+
+    <!-- FAVICONS START -->
+    <link rel="shortcut icon" href="favicons/favicon.ico" />
+    <link rel="icon" sizes="16x16 32x32 64x64" href="favicons/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="196x196"
+      href="favicons/favicon-192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="160x160"
+      href="favicons/favicon-160.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="favicons/favicon-96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="favicons/favicon-64.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicons/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicons/favicon-16.png"
+    />
+    <link rel="apple-touch-icon" href="favicons/favicon-57.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="favicons/favicon-114.png"
+    />
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/favicon-72.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="favicons/favicon-144.png"
+    />
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/favicon-60.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="favicons/favicon-120.png"
+    />
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/favicon-76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="favicons/favicon-152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicons/favicon-180.png"
+    />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="favicons/favicon-144.png" />
+    <meta name="msapplication-config" content="favicons/browserconfig.xml" />
+    <!-- FAVICONS END -->
+
+    <!-- OPENGRAPH START -->
+    <meta property="og:title" content="Midiano" />
+    <meta property="og:site_name" content="midiano.com" />
+    <meta property="og:url" content="https://midiano.com" />
+    <meta
+      property="og:description"
+      content="Midiano is an interactive Piano-learning app that runs on any device with a modern browser."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://midiano.com/images/openGraphScreen.png"
+    />
+    <!-- OPENGRAPH END -->
+    <meta
+      name="description"
+      content="Midiano is an interactive Piano-learning app that runs on any device with a modern browser. Open any MIDI-File and Midiano shows you the notes as falling bars over a piano as well as the corresponding sheet music. Connect a MIDI-Keyboard to get instant feedback if you hit the correct notes. You can also use the keyboard as output device to play the MIDI-Files on your keyboard."
+    />
+
+    <link
+      defer
+      rel="preload"
+      href="./css/bootstrap.min.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+
+    <link rel="stylesheet" type="text/css" href="./css/landingPage.css" />
+    <link defer rel="stylesheet" type="text/css" href="./css/Interface.css" />
+    <link defer rel="stylesheet" type="text/css" href="./css/Inputs.css" />
+    <link defer rel="stylesheet" type="text/css" href="./css/Settings.css" />
+
+    <!-- lib -->
+    <link defer rel="stylesheet" href="./css/nano.min.css" />
+    <!-- "https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/> -->
+    <link
+      defer
+      rel="stylesheet"
+      type="text/css"
+      href="./css/bootstrap.min.css"
+    />
+    <link defer rel="stylesheet" href="./css/bootstrap-theme.min.css" />
+    <!--"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+
+    <script defer src="lib/Pickr/pickr.es5.min.js"></script>
+    <script defer src="lib/Base64.js" type="text/javascript"></script>
+    <script defer src="lib/Base64binary.js" type="text/javascript"></script>
+    <script defer src="lib/vexflow-min.js" type="text/javascript"></script>
+    <script defer src="lib/three.min.js" type="text/javascript"></script>
+
+    <script type="module" src="js/main.js"></script>
+
+    <script
+      data-goatcounter="https://midiano.goatcounter.com/count"
+      async
+      src="./lib/goatCounter.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="landingPage" class="">
+      <div id="lpTopPlaceholder"></div>
+      <div id="lpBurgerMenu" class="burgerMenu"></div>
+      <div id="lpTop">
+        <div id="logoWrapper" class="lpTopDiv">
+          <a href="https://midiano.com"
+            ><img alt="Midiano" id="logoImg" src="./images/logo3.svg" />
+          </a>
+        </div>
+        <div id="lpTopStartWrap" class="lpTopDiv">
+          <button id="lpTopStartButton" class="lpStartButton">Start</button>
+        </div>
+      </div>
+      <div id="lpMainWrapper">
+        <div id="firstSection" class="lpSection dottedBg">
+          <div id="lpHeaderText">
+            Free Interactive Piano-App in your Browser!
+          </div>
+          <button class="lpStartButton">Start</button>
+          <div id="screenshotWrapper">
+            <img
+              alt="Midiano Screenshot"
+              loading="lazy"
+              src="images/screenShotNew.webp"
+              id="screenshot"
+            />
+          </div>
+        </div>
+
+        <div id="secondSection" class="lpSection dottedBg">
+          <div id="features">
+            <!-- <p>Features</p> -->
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-play"></span>
+              <div>Play any MIDI-File or choose one of the sample songs</div>
+            </div>
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-play"></span>
+              <div>
+                Pause, Skip Forward or Backward, Adjust the Speed - Intuitive
+                controls allow quick navigation through the song
+              </div>
+            </div>
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-random"></span>
+              <div>Automatic Sheet generation.</div>
+            </div>
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-random"></span>
+              <div>MIDI-Keyboard support - Input & Output</div>
+            </div>
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-time"></span>
+              <div>
+                Play-along-mode - Midiano waits for you to hit the correct notes
+              </div>
+            </div>
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-time"></span>
+              <div>
+                Sustain-info - View sustain-pedal events and sustained notes
+              </div>
+            </div>
+            <!-- <div class="featureBox"><span class="glyphicon glyphicon-fast-forward"></span><div>Play at any speed</div></div> -->
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-wrench"></span>
+              <div>
+                Track-control - Customize and only display or play the tracks
+                you want
+              </div>
+            </div>
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-wrench"></span>
+              <div>Customize colors, effects, instruments and much more</div>
+            </div>
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-music"></span>
+              <div>3 different Soundfonts to choose from</div>
+            </div>
+            <div class="featureBox">
+              <span class="glyphicon glyphicon-music"></span>
+              <div>
+                Works on any device with a modern browser (Firefox, Chrome,
+                Edge, Safari, iOS or Android. It doesn't work in IE.)
+              </div>
+            </div>
+            <!-- <div class="featureBox"><span class="glyphicon glyphicon-list"></span><div>Customize individual Tracks - Change instrument, color, volume etc.</div></div> -->
+          </div>
+        </div>
+      </div>
+
+      <div id="startPage" class="dottedBg">
+        <div id="startPageMain">
+          <div style="flex: 3"></div>
+          <a href="https://midiano.com"
+            ><img alt="Midiano" class="logo" src="./images/logo3.svg"
+          /></a>
+
+          <svg width="25%" id="2323" viewBox="0 0 408.94809 27.868338">
+            <g id="layer1">
+              <path
+                d="M 3.4458935e-8,21.562971 V 20.094028 H 2.6330106 V 2.3558518 H 3.4458935e-8 V 0.87305108 H 8.0791852 V 2.3558518 H 5.4461746 V 19.858443 h 9.4511224 v -3.464487 h 1.704528 v 5.169015 z"
+              />
+              <path
+                d="M 32.66319,14.4677 H 21.673835 v 0.110864 q 0,2.979459 1.122494,4.503834 1.122494,1.510517 3.31205,1.510517 1.676812,0 2.743874,-0.873051 1.080921,-0.886909 1.510517,-2.619153 h 2.050977 q -0.60975,2.425141 -2.258846,3.644641 -1.635238,1.2195 -4.309823,1.2195 -3.228902,0 -5.196731,-2.120267 -1.953971,-2.134124 -1.953971,-5.654044 0,-3.492203 1.926255,-5.6263274 1.926255,-2.1341244 5.058152,-2.1341244 3.339766,0 5.127441,2.0648346 Q 32.5939,10.545901 32.66319,14.4677 Z m -3.007175,-1.468942 q -0.08315,-2.577579 -1.094778,-3.8802264 -0.997773,-1.3165053 -2.882454,-1.3165053 -1.75996,0 -2.77159,1.3165053 -1.011631,1.3165054 -1.233358,3.8802264 z"
+              />
+              <path
+                d="m 45.370928,16.934416 v -3.118039 h -3.284334 q -1.898539,0 -2.827022,0.817619 -0.928483,0.817619 -0.928483,2.508289 0,1.538232 0.942341,2.438999 0.94234,0.900767 2.549863,0.900767 1.593664,0 2.563721,-0.983915 0.983914,-0.983914 0.983914,-2.56372 z m 2.549863,-4.573124 v 7.732736 h 2.272704 v 1.468943 h -4.822567 v -1.593664 q -0.845335,1.025488 -1.953971,1.510516 -1.108636,0.485029 -2.591437,0.485029 -2.452857,0 -3.894084,-1.302648 -1.441227,-1.302647 -1.441227,-3.519919 0,-2.286562 1.649096,-3.547635 1.649097,-1.261074 4.656272,-1.261074 h 3.575351 v -1.01163 q 0,-1.6768123 -1.025488,-2.591437 -1.011631,-0.9284827 -2.854738,-0.9284827 -1.524375,0 -2.425141,0.6928975 -0.900767,0.6928976 -1.122494,2.0509772 H 36.626561 V 7.5664412 q 1.330364,-0.568176 2.577579,-0.845335 1.261074,-0.291017 2.452857,-0.291017 3.062607,0 4.656272,1.5243746 1.607522,1.5105166 1.607522,4.4068282 z"
+              />
+              <path
+                d="m 64.550332,6.8042539 v 3.6862151 h -1.468943 q -0.06929,-1.0947784 -0.60975,-1.6352385 -0.54046,-0.54046 -1.579806,-0.54046 -1.884681,0 -2.896312,1.3026473 -0.997772,1.3026472 -0.997772,3.7416462 v 6.734964 h 2.951744 v 1.468943 h -7.802027 v -1.468943 h 2.30042 V 8.2870546 H 52.008887 V 6.8319698 h 4.988862 V 9.4511224 Q 57.746078,7.9128899 58.924004,7.1784185 60.10193,6.4300892 61.7926,6.4300892 q 0.623608,0 1.302647,0.097006 0.692898,0.097006 1.455085,0.277159 z"
+              />
+              <path
+                d="m 65.728262,21.562971 v -1.468943 h 2.300419 V 8.3147705 H 65.589682 V 6.8319698 h 4.988862 v 2.6191526 q 0.706756,-1.4966586 1.82925,-2.2588459 1.136352,-0.7621873 2.63301,-0.7621873 2.439,0 3.58921,1.399653 1.150209,1.399653 1.150209,4.3652548 v 7.899031 h 2.272704 v 1.468943 h -7.039839 v -1.468943 h 2.203415 v -7.09527 q 0,-2.702301 -0.665182,-3.700073 -0.665182,-1.0116304 -2.341994,-1.0116304 -1.773817,0 -2.7023,1.3026473 -0.928483,1.2887891 -0.928483,3.7693621 v 6.734964 h 2.217272 v 1.468943 z"
+              />
+              <path
+                d="m 97.712406,13.469928 v 1.455085 q 0,2.660726 1.011631,4.060379 1.025488,1.385795 2.965603,1.385795 1.95397,0 2.95174,-1.565948 1.01163,-1.565948 1.01163,-4.614698 0,-3.062607 -1.01163,-4.614697 -0.99777,-1.5520905 -2.95174,-1.5520905 -1.940115,0 -2.965603,1.399653 -1.011631,1.3996535 -1.011631,4.0465215 z M 95.162543,8.3147705 H 92.709686 V 6.8319698 h 5.00272 v 2.3004198 q 0.74833,-1.3857951 1.898539,-2.0371188 1.164065,-0.6651816 2.868595,-0.6651816 2.71616,0 4.43455,2.1479823 1.71838,2.1479825 1.71838,5.6124695 0,3.464488 -1.71838,5.626328 -1.71839,2.147983 -4.43455,2.147983 -1.70453,0 -2.868595,-0.651324 -1.150209,-0.665182 -1.898539,-2.050977 v 6.721106 h 2.411284 v 1.482801 h -7.414004 v -1.482801 h 2.452857 z"
+              />
+              <path
+                d="m 112.83143,2.2588461 q 0,-0.6374657 0.45731,-1.108636 0.47117,-0.47117032 1.1225,-0.47117032 0.63746,0 1.09478,0.47117032 0.47117,0.4711703 0.47117,1.108636 0,0.6513237 -0.45732,1.1086361 -0.45731,0.4573123 -1.10863,0.4573123 -0.65133,0 -1.1225,-0.4573123 -0.45731,-0.4573124 -0.45731,-1.1086361 z m 3.25662,17.8351819 h 2.41128 v 1.468943 h -7.40014 v -1.468943 h 2.439 V 8.3147705 h -2.439 V 6.8319698 h 4.98886 z"
+              />
+              <path
+                d="m 130.45874,16.934416 v -3.118039 h -3.28433 q -1.89854,0 -2.82702,0.817619 -0.92849,0.817619 -0.92849,2.508289 0,1.538232 0.94234,2.438999 0.94234,0.900767 2.54987,0.900767 1.59366,0 2.56372,-0.983915 0.98391,-0.983914 0.98391,-2.56372 z m 2.54987,-4.573124 v 7.732736 h 2.2727 v 1.468943 h -4.82257 v -1.593664 q -0.84533,1.025488 -1.95397,1.510516 -1.10863,0.485029 -2.59144,0.485029 -2.45285,0 -3.89408,-1.302648 -1.44123,-1.302647 -1.44123,-3.519919 0,-2.286562 1.6491,-3.547635 1.6491,-1.261074 4.65627,-1.261074 h 3.57535 v -1.01163 q 0,-1.6768123 -1.02549,-2.591437 -1.01163,-0.9284827 -2.85473,-0.9284827 -1.52438,0 -2.42515,0.6928975 -0.90076,0.6928976 -1.12249,2.0509772 h -1.3165 V 7.5664412 q 1.33036,-0.568176 2.57757,-0.845335 1.26108,-0.291017 2.45286,-0.291017 3.06261,0 4.65627,1.5243746 1.60753,1.5105166 1.60753,4.4068282 z"
+              />
+              <path
+                d="m 137.23528,21.562971 v -1.468943 h 2.30042 V 8.3147705 h -2.439 V 6.8319698 h 4.98886 v 2.6191526 q 0.70676,-1.4966586 1.82925,-2.2588459 1.13635,-0.7621873 2.63301,-0.7621873 2.439,0 3.58921,1.399653 1.15021,1.399653 1.15021,4.3652548 v 7.899031 h 2.27271 v 1.468943 h -7.03984 v -1.468943 h 2.20341 v -7.09527 q 0,-2.702301 -0.66518,-3.700073 -0.66518,-1.0116304 -2.34199,-1.0116304 -1.77382,0 -2.7023,1.3026473 -0.92849,1.2887891 -0.92849,3.7693621 v 6.734964 h 2.21728 v 1.468943 z"
+              />
+              <path
+                d="m 162.90021,20.592915 q 2.05097,0 3.09032,-1.621381 1.0532,-1.62138 1.0532,-4.780993 0,-3.159612 -1.0532,-4.7671345 -1.03935,-1.6213802 -3.09032,-1.6213802 -2.05098,0 -3.10418,1.6213802 -1.03935,1.6075225 -1.03935,4.7671345 0,3.159613 1.0532,4.780993 1.05321,1.621381 3.09033,1.621381 z m 0,1.371937 q -3.21505,0 -5.16902,-2.120267 -1.95397,-2.134124 -1.95397,-5.654044 0,-3.519919 1.94011,-5.6401854 1.95397,-2.1202664 5.18288,-2.1202664 3.2289,0 5.16901,2.1202664 1.95397,2.1202664 1.95397,5.6401854 0,3.51992 -1.95397,5.654044 -1.94011,2.120267 -5.16901,2.120267 z"
+              />
+              <path
+                d="m 183.22982,2.2588461 q 0,-0.6374657 0.45732,-1.108636 0.47117,-0.47117032 1.12249,-0.47117032 0.63747,0 1.09478,0.47117032 0.47117,0.4711703 0.47117,1.108636 0,0.6513237 -0.45731,1.1086361 -0.45732,0.4573123 -1.10864,0.4573123 -0.65132,0 -1.12249,-0.4573123 -0.45732,-0.4573124 -0.45732,-1.1086361 z m 3.25662,17.8351819 h 2.41129 v 1.468943 h -7.40015 v -1.468943 h 2.439 V 8.3147705 h -2.439 V 6.8319698 h 4.98886 z"
+              />
+              <path
+                d="m 190.72696,21.562971 v -1.468943 h 2.30042 V 8.3147705 h -2.43899 V 6.8319698 h 4.98886 v 2.6191526 q 0.70675,-1.4966586 1.82925,-2.2588459 1.13635,-0.7621873 2.63301,-0.7621873 2.439,0 3.58921,1.399653 1.15021,1.399653 1.15021,4.3652548 v 7.899031 h 2.2727 v 1.468943 h -7.03984 v -1.468943 h 2.20342 v -7.09527 q 0,-2.702301 -0.66519,-3.700073 -0.66518,-1.0116304 -2.34199,-1.0116304 -1.77382,0 -2.7023,1.3026473 -0.92848,1.2887891 -0.92848,3.7693621 v 6.734964 h 2.21727 v 1.468943 z"
+              />
+              <path
+                d="m 223.01599,24.265271 0.97006,-2.452857 -5.50161,-13.4976435 h -1.67681 V 6.8319698 h 6.77654 v 1.4828007 h -2.35585 l 4.14352,10.1301615 4.14353,-10.1301615 h -2.20341 V 6.8319698 h 5.52932 v 1.4828007 h -1.6491 l -6.74882,16.5741085 q -0.6929,1.718386 -1.53823,2.341994 -0.84534,0.637466 -2.38357,0.637466 -0.65132,0 -1.34422,-0.110864 -0.67904,-0.110864 -1.37194,-0.318733 v -2.813164 h 1.30265 q 0.0832,0.942341 0.47117,1.344221 0.40188,0.415739 1.23336,0.415739 0.76218,0 1.2195,-0.429597 0.47117,-0.415738 0.98391,-1.69067 z"
+              />
+              <path
+                d="m 241.44707,20.592915 q 2.05097,0 3.09032,-1.621381 1.0532,-1.62138 1.0532,-4.780993 0,-3.159612 -1.0532,-4.7671345 -1.03935,-1.6213802 -3.09032,-1.6213802 -2.05098,0 -3.10419,1.6213802 -1.03934,1.6075225 -1.03934,4.7671345 0,3.159613 1.0532,4.780993 1.05321,1.621381 3.09033,1.621381 z m 0,1.371937 q -3.21505,0 -5.16902,-2.120267 -1.95397,-2.134124 -1.95397,-5.654044 0,-3.519919 1.94011,-5.6401854 1.95397,-2.1202664 5.18288,-2.1202664 3.2289,0 5.16901,2.1202664 1.95397,2.1202664 1.95397,5.6401854 0,3.51992 -1.95397,5.654044 -1.94011,2.120267 -5.16901,2.120267 z"
+              />
+              <path
+                d="m 260.03058,6.8319698 h 4.76714 V 20.094028 h 2.41128 v 1.468943 h -4.96115 v -2.605295 q -0.70675,1.468943 -1.82925,2.244988 -1.12249,0.762188 -2.60529,0.762188 -2.45286,0 -3.61693,-1.385795 -1.15021,-1.399653 -1.15021,-4.379113 V 8.3147705 h -2.30042 V 6.8319698 h 4.86414 v 8.5780712 q 0,2.688443 0.65133,3.686215 0.66518,0.997772 2.35585,0.997772 1.77382,0 2.7023,-1.302647 0.92848,-1.302647 0.92848,-3.78322 V 8.3147705 h -2.21727 z"
+              />
+              <path
+                d="m 281.843,6.8042539 v 3.6862151 h -1.46895 q -0.0693,-1.0947784 -0.60975,-1.6352385 -0.54046,-0.54046 -1.5798,-0.54046 -1.88468,0 -2.89631,1.3026473 -0.99778,1.3026472 -0.99778,3.7416462 v 6.734964 h 2.95175 v 1.468943 h -7.80203 v -1.468943 h 2.30042 V 8.2870546 h -2.439 V 6.8319698 h 4.98886 v 2.6191526 q 0.74833,-1.5382325 1.92626,-2.2727039 1.17792,-0.7483293 2.86859,-0.7483293 0.62361,0 1.30265,0.097006 0.6929,0.097006 1.45509,0.277159 z"
+              />
+              <path
+                d="M 294.16272,20.094028 V 1.468943 h -2.45286 V 2.0489097e-7 h 5.00272 V 9.1323896 q 0.74833,-1.3857951 1.89854,-2.0371188 1.16407,-0.6651816 2.8686,-0.6651816 2.71615,0 4.43454,2.1479823 1.71839,2.1479825 1.71839,5.6124695 0,3.464488 -1.71839,5.626328 -1.71839,2.147983 -4.43454,2.147983 -1.70453,0 -2.8686,-0.651324 -1.15021,-0.665182 -1.89854,-2.050977 v 2.30042 h -5.00272 v -1.468943 z m 2.54986,-5.169015 q 0,2.660726 1.01163,4.060379 1.02549,1.385795 2.9656,1.385795 1.95397,0 2.95175,-1.565948 1.01163,-1.565948 1.01163,-4.614698 0,-3.062607 -1.01163,-4.614697 -0.99778,-1.5520905 -2.95175,-1.5520905 -1.94011,0 -2.9656,1.399653 -1.01163,1.3996535 -1.01163,4.0465215 z"
+              />
+              <path
+                d="m 322.64079,6.8042539 v 3.6862151 h -1.46895 q -0.0693,-1.0947784 -0.60975,-1.6352385 -0.54046,-0.54046 -1.5798,-0.54046 -1.88468,0 -2.89631,1.3026473 -0.99778,1.3026472 -0.99778,3.7416462 v 6.734964 h 2.95175 v 1.468943 h -7.80203 v -1.468943 h 2.30042 V 8.2870546 h -2.439 V 6.8319698 h 4.98886 v 2.6191526 q 0.74833,-1.5382325 1.92626,-2.2727039 1.17792,-0.7483293 2.86859,-0.7483293 0.62361,0 1.30265,0.097006 0.6929,0.097006 1.45509,0.277159 z"
+              />
+              <path
+                d="m 331.19116,20.592915 q 2.05098,0 3.09032,-1.621381 1.05321,-1.62138 1.05321,-4.780993 0,-3.159612 -1.05321,-4.7671345 -1.03934,-1.6213802 -3.09032,-1.6213802 -2.05098,0 -3.10418,1.6213802 -1.03935,1.6075225 -1.03935,4.7671345 0,3.159613 1.05321,4.780993 1.0532,1.621381 3.09032,1.621381 z m 0,1.371937 q -3.21504,0 -5.16901,-2.120267 -1.95398,-2.134124 -1.95398,-5.654044 0,-3.519919 1.94012,-5.6401854 1.95397,-2.1202664 5.18287,-2.1202664 3.2289,0 5.16902,2.1202664 1.95397,2.1202664 1.95397,5.6401854 0,3.51992 -1.95397,5.654044 -1.94012,2.120267 -5.16902,2.120267 z"
+              />
+              <path
+                d="m 353.35003,6.8319698 3.76936,11.5020992 3.32591,-10.0192985 h -2.13413 V 6.8319698 h 5.33531 v 1.4828007 h -1.63523 l -4.37912,13.2482005 h -2.12026 l -3.63079,-11.01707 -3.64464,11.01707 h -2.03712 L 341.83407,8.3147705 h -1.6491 V 6.8319698 h 6.66568 v 1.4828007 h -2.38357 l 3.29819,10.0192985 3.79708,-11.5020992 z"
+              />
+              <path
+                d="M 365.60044,20.745352 V 17.30858 h 1.46894 q 0.0554,1.649096 1.02549,2.466716 0.98391,0.817619 2.89631,0.817619 1.71839,0 2.61915,-0.637466 0.90077,-0.651324 0.90077,-1.884681 0,-0.970057 -0.66518,-1.565949 -0.65132,-0.595892 -2.77159,-1.274931 l -1.84311,-0.623608 q -1.89854,-0.60975 -2.75773,-1.524375 -0.84533,-0.914624 -0.84533,-2.328135 0,-2.023261 1.4828,-3.1734709 1.4828,-1.1502099 4.10195,-1.1502099 1.16407,0 2.45286,0.3048749 1.28879,0.3048749 2.66072,0.8869089 v 3.215044 h -1.46894 q -0.0554,-1.4273684 -0.99777,-2.2311296 -0.94234,-0.8037611 -2.56372,-0.8037611 -1.60753,0 -2.439,0.568176 -0.81762,0.5681759 -0.81762,1.7045277 0,0.928483 0.62361,1.496659 0.6236,0.554318 2.49443,1.136352 l 2.02326,0.623608 q 2.09255,0.651323 3.00717,1.635238 0.92849,0.970056 0.92849,2.508289 0,2.09255 -1.60753,3.298192 -1.59366,1.191784 -4.40682,1.191784 -1.42737,0 -2.78545,-0.304875 -1.35808,-0.304875 -2.71616,-0.914625 z"
+              />
+              <path
+                d="m 393.96768,14.4677 h -10.98935 v 0.110864 q 0,2.979459 1.12249,4.503834 1.1225,1.510517 3.31205,1.510517 1.67681,0 2.74388,-0.873051 1.08092,-0.886909 1.51051,-2.619153 h 2.05098 q -0.60975,2.425141 -2.25885,3.644641 -1.63523,1.2195 -4.30982,1.2195 -3.2289,0 -5.19673,-2.120267 -1.95397,-2.134124 -1.95397,-5.654044 0,-3.492203 1.92625,-5.6263274 1.92626,-2.1341244 5.05816,-2.1341244 3.33976,0 5.12744,2.0648346 1.78767,2.0509772 1.85696,5.9727762 z m -3.00717,-1.468942 q -0.0831,-2.577579 -1.09478,-3.8802264 -0.99777,-1.3165053 -2.88245,-1.3165053 -1.75996,0 -2.77159,1.3165053 -1.01163,1.3165054 -1.23336,3.8802264 z"
+              />
+              <path
+                d="m 408.9481,6.8042539 v 3.6862151 h -1.46894 q -0.0693,-1.0947784 -0.60975,-1.6352385 -0.54046,-0.54046 -1.57981,-0.54046 -1.88468,0 -2.89631,1.3026473 -0.99777,1.3026472 -0.99777,3.7416462 v 6.734964 h 2.95174 v 1.468943 h -7.80203 v -1.468943 h 2.30042 V 8.2870546 h -2.439 V 6.8319698 h 4.98887 v 2.6191526 q 0.74832,-1.5382325 1.92625,-2.2727039 1.17793,-0.7483293 2.8686,-0.7483293 0.6236,0 1.30264,0.097006 0.6929,0.097006 1.45509,0.277159 z"
+              />
+            </g>
+          </svg>
+
+          <!-- <div style="flex:0"></div> -->
+          <div style="flex: 0.5" class="btn-group">
+            <button class="btn" id="startButton">Start</button>
+            <button class="btn" id="aboutButton">About</button>
+          </div>
+          <div style="flex: 2"></div>
+          <div id="socialLogos">
+            <a href="https://www.reddit.com/r/midiano/"
+              ><img
+                alt="Link to Subreddit /r/midiano"
+                src="/images/socials/RedditGrey.svg"
+            /></a>
+            <a href="https://twitter.com/MidianoOfficial"
+              ><img
+                alt="Link to official Twitter profile"
+                src="/images/socials/TwitterGrey.svg"
+            /></a>
+            <a href="https://discord.gg/SfFdbunEm2"
+              ><img
+                alt="Link to discord chat room"
+                src="/images/socials/DiscordGrey.svg"
+            /></a>
+          </div>
+          <div style="flex: 0.5"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

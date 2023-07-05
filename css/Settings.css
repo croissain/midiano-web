@@ -1,0 +1,179 @@
+.settingsContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-size: 0.741rem;
+}
+
+button.settingContainer {
+    width: 50%;
+}
+
+.settingContainer.label {
+    font-size: 0.741rem;
+}
+
+.settingsTabButtonContainer {
+    background-color: var(--innerMenuBgColor);
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.settingsTabButton {
+    background-color: var(--darkerInnerMenuBgColor);
+    color: var(--buttonFontColor);
+    flex: 1 1 auto;
+    height: 2em;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+.settingsContentContainer {
+    height: calc(100% - 2rem);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.settingsTabContentContainer {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 0.5rem;
+    display: none;
+    height: calc(100% - 2rem);
+}
+
+.settingsTabContentContainer button {
+    margin: 0.5em;
+    font-size: 0.741rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.settingsGroupContainer {
+    border-top: 2px solid var(--borderColor);
+}
+
+.settingsGroupContainer:first-of-type {
+    border-top: 0px solid black;
+}
+
+.settingsGroupContainer div:first-of-type {
+    /* margin-bottom: 10px; */
+}
+
+.settingsLabel {
+    font-size: 0.741rem;
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: var(--fontColor);
+}
+
+.settingContainer {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.741rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--darkInnerMenuBgColor);
+    transition: 0.2s all ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.settingContainer:hover {
+    background-color: var(--lightInnerMenuHoverBgColor);
+}
+
+.dynSettingContInner {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    align-items: center;
+}
+
+.dynSettingList {
+    max-height: 500px;
+    overflow-y: auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+.dynSettingOptionOuter:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+}
+
+.dynSettingOptionOuter.selected {
+    background-color: var(--innerMenuBgColor);
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    color: var(--inputFontColor);
+}
+
+/* padding-left: 0.6rem;
+	padding-right: 0.6rem; */
+
+.dynSettingLabel {
+    font-size: 1rem;
+}
+
+.dynSettingOptionLabel {
+    width: 50%;
+}
+
+.dynSettingRow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.dynSettingOptionOuter {
+    width: 80%;
+    font-size: 0.741rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s ease-out;
+    margin: 1px;
+    box-shadow: inset 0em 0em 0.1rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+.dynSettingOptionOuter button .btn-select-line {
+    display: none;
+}
+
+.dynSettingOptionOuter button {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    border: 0px;
+    outline: 0px;
+    margin: 0px;
+}
